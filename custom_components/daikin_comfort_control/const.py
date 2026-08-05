@@ -31,16 +31,20 @@ DAIKIN_MODE_COOL = 3
 DAIKIN_MODE_HEAT = 4
 DAIKIN_MODE_FAN  = 6
 
-# Fan rate — 'A' = auto confirmed from capture (f_rate=A in set_control_info)
+# Fan rate — this is a 5-speed unit that uses raw values 3-7 for Levels
+# 1-5 (NOT 1-5 directly). Confirmed via live get_control_info capture on
+# 2026-08-04: app Level 1 -> f_rate=3, app Level 5 -> f_rate=7.
+# 'A' = auto, 'B' = silence/quiet.
 DAIKIN_FAN_AUTO = "A"
 
 DAIKIN_TO_HA_FAN: dict[str, str] = {
     "A": FAN_AUTO,
-    "1": "quiet",
-    "2": FAN_LOW,
-    "3": FAN_MEDIUM,
-    "4": FAN_HIGH,
-    "5": "powerful",
+    "B": "quiet",
+    "3": FAN_LOW,
+    "4": "medium_low",
+    "5": FAN_MEDIUM,
+    "6": "medium_high",
+    "7": FAN_HIGH,
 }
 
 HA_TO_DAIKIN_FAN: dict[str, str] = {v: k for k, v in DAIKIN_TO_HA_FAN.items()}
