@@ -54,6 +54,6 @@ DAIKIN_SWING_OFF = "0"
 DAIKIN_SWING_ON  = "1"
 
 # Temperature limits (Fahrenheit — the app displays in °F for US/reg=us)
-MIN_TEMP_F  = 64.0
-MAX_TEMP_F  = 90.0
+MIN_TEMP_F = 50.0
+MAX_TEMP_F = 86.0
 TEMP_STEP_F = 1.0
